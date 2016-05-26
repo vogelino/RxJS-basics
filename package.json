@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js",
-    "watch:reactiveButton": "watchify ./src/reactiveButton/index.js -t babelify -o ./src/reactiveButton/bundle.js",
-    "watch:reactiveInput": "watchify ./src/reactiveInput/index.js -t babelify -o ./src/reactiveInput/bundle.js"
+    "watch:reactiveTimer": "watchify ./src/reactiveTimer/index.js -t babelify -o ./src/reactiveTimer/bundle.js",
+    "watch:reactiveInput": "watchify ./src/reactiveInput/index.js -t babelify -o ./src/reactiveInput/bundle.js",
+    "watch:combinedTimerAndInput": "watchify ./src/combinedTimerAndInput/index.js -t babelify -o ./src/combinedTimerAndInput/bundle.js"
   },
   "repository": {
     "type": "git",

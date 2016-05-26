@@ -25,3 +25,5 @@ const incrementingInterval$ = startInterval$
 	.scan((acc, curr) => curr(acc));
 
 incrementingInterval$.subscribe(({ count }) => console.log(count));
+
+export default incrementingInterval$;
