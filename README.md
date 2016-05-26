@@ -18,5 +18,8 @@ Creates an observable based on a javascript interval timer. Similar as `setInerv
 #### `switchMap`
 Switches from an observable to another when an event is emitted. For instance, if I click on a button, start a timer (we define two observables, subscribe to the first and switchMap to the second).
 
+##### `switchMapTo`
+Switches from an observable to another too, but accepts an observable to switch to instead of a callback function.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

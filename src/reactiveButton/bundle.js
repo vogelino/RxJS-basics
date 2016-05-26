@@ -15981,11 +15981,10 @@ var startButton = document.getElementById('start');
 
 var buttonClick$ = _Rx.Observable.fromEvent(startButton, 'click');
 var interval$ = _Rx.Observable.interval(1000);
+var startInterval$ = buttonClick$.switchMapTo(interval$);
 
-buttonClick$.switchMap(function () {
-	return interval$;
-}).subscribe(function (count) {
-	return console.log(count);
+startInterval$.subscribe(function (count) {
+  return console.log(count);
 });
 
 },{"rxjs/Rx":10}]},{},[338]);
