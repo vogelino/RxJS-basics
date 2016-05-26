@@ -33,5 +33,8 @@ Defines the data to start with and runs the observable once at the beginning. Re
 #### `mapTo`
 A method to tell the observable to map its data given a map function.
 
+#### `merge`
+Allows an observable to switch to other multiple observables, that map data with other map functions.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

@@ -15979,19 +15979,25 @@ var _Rx = require('rxjs/Rx');
 
 var startButton = document.getElementById('start');
 var stopButton = document.getElementById('stop');
+var resetButton = document.getElementById('reset');
 
 var start$ = _Rx.Observable.fromEvent(startButton, 'click');
-var interval$ = _Rx.Observable.interval(500);
 var stop$ = _Rx.Observable.fromEvent(stopButton, 'click');
+var reset$ = _Rx.Observable.fromEvent(resetButton, 'click');
+var interval$ = _Rx.Observable.interval(500);
 var intervalThatStops$ = interval$.takeUntil(stop$);
-var startInterval$ = start$.switchMapTo(intervalThatStops$);
 
 var data = { count: 0 };
 var inc = function inc(acc) {
 	return { count: acc.count + 1 };
 };
+var reset = function reset() {
+	return data;
+};
 
-var incrementingInterval$ = startInterval$.mapTo(inc).startWith(data).scan(function (acc, curr) {
+var startInterval$ = start$.switchMapTo(_Rx.Observable.merge(intervalThatStops$.mapTo(inc), reset$.mapTo(reset)));
+
+var incrementingInterval$ = startInterval$.startWith(data).scan(function (acc, curr) {
 	return curr(acc);
 });
 
