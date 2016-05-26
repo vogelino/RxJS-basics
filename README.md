@@ -42,5 +42,11 @@ Takes the results of the Observable, call it as a parameter of a callback functi
 #### `combineLatest`
 Creates an Observable stream with combined results of other Observable streams.
 
+#### `filter`
+Similar to map, filters the results of the Observable events and reach them further.
+
+#### `takeWhile`
+Similar to filter in its parameters but stops the stream when the condition defined in it does not pass anymore.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

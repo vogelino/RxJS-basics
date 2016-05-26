@@ -26,6 +26,6 @@ const incrementingInterval$ = starters$
 	.startWith(data)
 	.scan((acc, curr) => curr(acc));
 
-incrementingInterval$.subscribe(({ count }) => console.log(count));
+// incrementingInterval$.subscribe(({ count }) => console.log(count));
 
 export default incrementingInterval$;
