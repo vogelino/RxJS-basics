@@ -15985,9 +15985,14 @@ var interval$ = _Rx.Observable.interval(500);
 var stop$ = _Rx.Observable.fromEvent(stopButton, 'click');
 var intervalThatStops$ = interval$.takeUntil(stop$);
 var startInterval$ = start$.switchMapTo(intervalThatStops$);
+
 var data = { count: 0 };
-var incrementingInterval$ = startInterval$.startWith(data).scan(function (acc) {
-	return Object.assign(acc, { count: acc.count + 1 });
+var inc = function inc(acc) {
+	return { count: acc.count + 1 };
+};
+
+var incrementingInterval$ = startInterval$.mapTo(inc).startWith(data).scan(function (acc, curr) {
+	return curr(acc);
 });
 
 incrementingInterval$.subscribe(function (_ref) {

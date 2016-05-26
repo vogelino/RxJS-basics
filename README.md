@@ -25,10 +25,13 @@ Switches from an observable to another too, but accepts an observable to switch 
 Runs an observable until an given observable emits an event.
 
 #### `scan`
-Similar to reduce in javascript. Takes a function and an initial value. The function is called with the accumulator and reaches it further.
+Similar to reduce in javascript. Takes a function and an initial value. The function is called with the accumulator and the current value and reaches it further.
 
 #### `startWidth`
 Defines the data to start with and runs the observable once at the beginning. Replaces the second argument of `scan`.
+
+#### `mapTo`
+A method to tell the observable to map its data given a map function.
 
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.
