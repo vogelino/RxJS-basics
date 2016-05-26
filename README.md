@@ -1,5 +1,14 @@
 # RxJS-basics
-An API for asynchronous programming with observable streams
+Testing and learning RxJS, an API for asynchronous programming with observable streams.
+
+To install, build and open the examples run
+```
+git clone https://github.com/vogelino/RxJS-basics.git
+cd RxJS-basics
+npm install
+npm run watch:<nameOfTheExampleFolder>
+```
+And open `src/<nameOfTheExampleFolder>/index.html` In your browser.
 
 ## [Observable](http://reactivex.io/documentation/observable.html)
 An observable is a time line abstraction that emits events.
