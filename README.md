@@ -21,5 +21,8 @@ Switches from an observable to another when an event is emitted. For instance, i
 ##### `switchMapTo`
 Switches from an observable to another too, but accepts an observable to switch to instead of a callback function.
 
+#### `takeUtil`
+Runs an observable until an given observable emits an event.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

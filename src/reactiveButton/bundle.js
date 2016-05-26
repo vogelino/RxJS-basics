@@ -15978,10 +15978,13 @@ module.exports = function symbolObservablePonyfill(root) {
 var _Rx = require('rxjs/Rx');
 
 var startButton = document.getElementById('start');
+var stopButton = document.getElementById('stop');
 
-var buttonClick$ = _Rx.Observable.fromEvent(startButton, 'click');
-var interval$ = _Rx.Observable.interval(1000);
-var startInterval$ = buttonClick$.switchMapTo(interval$);
+var start$ = _Rx.Observable.fromEvent(startButton, 'click');
+var interval$ = _Rx.Observable.interval(500);
+var stop$ = _Rx.Observable.fromEvent(stopButton, 'click');
+var intervalThatStops$ = interval$.takeUntil(stop$);
+var startInterval$ = start$.switchMapTo(intervalThatStops$);
 
 startInterval$.subscribe(function (count) {
   return console.log(count);
