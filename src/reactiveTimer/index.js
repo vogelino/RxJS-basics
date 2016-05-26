@@ -1,26 +1,28 @@
 import { Observable } from 'rxjs/Rx';
 
-const startButton = document.getElementById('start');
-const stopButton = document.getElementById('stop');
-const resetButton = document.getElementById('reset');
+const buttons = {};
+['start', 'half', 'quarter', 'stop', 'reset'].forEach((button) => {
+	const domButton = document.getElementById(button);
+	buttons[`${button}$`] = Observable.fromEvent(domButton, 'click');
+});
 
-const start$ = Observable.fromEvent(startButton, 'click');
-const stop$ = Observable.fromEvent(stopButton, 'click');
-const reset$ = Observable.fromEvent(resetButton, 'click');
-const interval$ = Observable.interval(500);
-const intervalThatStops$ = interval$.takeUntil(stop$);
+const starters$ = Observable.merge(
+	buttons.start$.mapTo(1000),
+	buttons.half$.mapTo(500),
+	buttons.quarter$.mapTo(250)
+);
 
 const data = { count: 0 };
 const inc = (acc) => ({ count: acc.count + 1 });
 const reset = () => data;
 
-const incOrReset$ = Observable.merge(
-	intervalThatStops$.mapTo(inc),
-	reset$.mapTo(reset));
+const intervalActions = (time) => Observable.merge(
+	Observable.interval(time).takeUntil(buttons.stop$).mapTo(inc),
+	buttons.reset$.mapTo(reset)
+);
 
-const startInterval$ = start$.switchMapTo(incOrReset$);
-
-const incrementingInterval$ = startInterval$
+const incrementingInterval$ = starters$
+	.switchMap(intervalActions)
 	.startWith(data)
 	.scan((acc, curr) => curr(acc));
 
