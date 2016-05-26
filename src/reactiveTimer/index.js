@@ -10,7 +10,7 @@ const starters$ = Observable.merge(
 	buttons.start$.mapTo(1000),
 	buttons.half$.mapTo(500),
 	buttons.quarter$.mapTo(250)
-);
+).share();
 
 const data = { count: 0 };
 const inc = (acc) => ({ count: acc.count + 1 });
@@ -28,4 +28,4 @@ const incrementingInterval$ = starters$
 
 // incrementingInterval$.subscribe(({ count }) => console.log(count));
 
-export default incrementingInterval$;
+export { starters$, incrementingInterval$ as reactiveTimer$ };

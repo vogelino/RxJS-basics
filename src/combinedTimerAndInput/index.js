@@ -1,14 +1,12 @@
 import { Observable } from 'rxjs/Rx';
 import reactiveInput$ from '../reactiveInput'
-import reactiveTimer$ from '../reactiveTimer'
+import { starters$, reactiveTimer$ } from '../reactiveTimer'
 
 const input = document.getElementById('textInput');
+const domScore = document.getElementById('score');
 const logData = (data) => console.log(data);
-
-const renderScore = (score) => {
-	const domScore = document.getElementById('score');
-	domScore.innerText = score;
-};
+const setInputValue = (value = '') => input.value = value;
+const renderScore = (score = '') => domScore.innerText = score;
 
 const runningGame$ = reactiveTimer$
 	.do(logData)
@@ -21,7 +19,7 @@ const runningGame$ = reactiveTimer$
 
 runningGame$
 	.repeat()
-	.subscribe(() => input.value = '')
+	.subscribe(() => setInputValue(''))
 
 runningGame$
 	.filter(({ text, count }) => count === parseInt(text))
@@ -31,3 +29,10 @@ runningGame$
 		renderScore,
 		(err) => console.log(err)
 	);
+
+starters$
+	.subscribe(() => {
+		input.focus()
+		renderScore('');
+		setInputValue('');
+	});
