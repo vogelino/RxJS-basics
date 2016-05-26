@@ -67,5 +67,8 @@ Allows to trigger a side effect at each iteration.
 #### `repeat`
 Resets the initial data of an Observable and allows it to restart. When used, the stream never completes.
 
+#### `share`
+Shares a stream among multiple subscriptions.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.
