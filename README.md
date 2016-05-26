@@ -8,7 +8,7 @@ cd RxJS-basics
 npm install
 npm run watch:<nameOfTheExampleFolder>
 ```
-And open `src/<nameOfTheExampleFolder>/index.html` In your browser.
+And open `examples/<nameOfTheExampleFolder>/index.html` In your browser.
 
 ## [Observable](http://reactivex.io/documentation/observable.html)
 An observable is a time line abstraction that emits events.
