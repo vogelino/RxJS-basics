@@ -36,5 +36,8 @@ A method to tell the observable to map its data given a map function.
 #### `merge`
 Allows an observable to switch to other multiple observables, that map data with other map functions.
 
+#### `map`
+Takes the results of the Observable, call it as a parameter of a callback function and what is returned in it will reach further.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

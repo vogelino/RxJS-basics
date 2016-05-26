@@ -4,4 +4,5 @@ const domInput = document.getElementById('textInput');
 const input$ = Observable.fromEvent(domInput, 'input');
 
 input$
-	.subscribe(({ target }) => console.log(target.value));
+	.map(({ target }) => target.value)
+	.subscribe((value) => console.log(value));
