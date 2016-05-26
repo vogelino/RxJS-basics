@@ -39,5 +39,8 @@ Allows an observable to switch to other multiple observables, that map data with
 #### `map`
 Takes the results of the Observable, call it as a parameter of a callback function and what is returned in it will reach further.
 
+#### `combineLatest`
+Creates an Observable stream with combined results of other Observable streams.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.
