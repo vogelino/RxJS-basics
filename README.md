@@ -47,7 +47,10 @@ Allows an observable to switch to other multiple observables, that map data with
 Takes the results of the Observable, call it as a parameter of a callback function and what is returned in it will reach further.
 
 #### `combineLatest`
-Creates an Observable stream with combined results of other Observable streams.
+Creates an Observable stream with combined results of other Observable streams. **Important**: This waits for at least one event of each combined Observable stream to reach informations further.
+
+#### `withLatestFrom`
+Combines an Observable stream with another as combineLatest would but waits only for the combined Observable.
 
 #### `filter`
 Similar to map, filters the results of the Observable events and reach them further.
