@@ -1,0 +1,28 @@
+{
+  "name": "rxjs-basics",
+  "version": "1.0.0",
+  "description": "Learning RxJS by doing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vogelino/RxJS-basics.git"
+  },
+  "keywords": [
+    "rx",
+    "rxjs",
+    "reactive",
+    "javascript",
+    "learning",
+    "tutorial",
+    "cheatsheet"
+  ],
+  "author": "Lucas Vogel <contact@vogelino.com> (http://vogelino.com)",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/vogelino/RxJS-basics/issues"
+  },
+  "homepage": "https://github.com/vogelino/RxJS-basics#readme"
+}
