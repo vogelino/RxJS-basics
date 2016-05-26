@@ -15985,9 +15985,13 @@ var interval$ = _Rx.Observable.interval(500);
 var stop$ = _Rx.Observable.fromEvent(stopButton, 'click');
 var intervalThatStops$ = interval$.takeUntil(stop$);
 var startInterval$ = start$.switchMapTo(intervalThatStops$);
+var incrementingInterval$ = startInterval$.scan(function (acc) {
+	return Object.assign(acc, { count: acc.count + 1 });
+}, { count: 0 });
 
-startInterval$.subscribe(function (count) {
-  return console.log(count);
+incrementingInterval$.subscribe(function (_ref) {
+	var count = _ref.count;
+	return console.log(count);
 });
 
 },{"rxjs/Rx":10}]},{},[338]);

@@ -24,5 +24,8 @@ Switches from an observable to another too, but accepts an observable to switch 
 #### `takeUtil`
 Runs an observable until an given observable emits an event.
 
+#### `scan`
+Similar to reduce in javascript. Takes a function and an initial value. The function is called with the accumulator and reaches it further.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

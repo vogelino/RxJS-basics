@@ -8,5 +8,7 @@ const interval$ = Observable.interval(500);
 const stop$ = Observable.fromEvent(stopButton, 'click');
 const intervalThatStops$ = interval$.takeUntil(stop$);
 const startInterval$ = start$.switchMapTo(intervalThatStops$);
+const incrementingInterval$ = startInterval$.scan((acc) =>
+	Object.assign(acc, { count: acc.count + 1 }), { count: 0 });
 
-startInterval$.subscribe((count) => console.log(count));
+incrementingInterval$.subscribe(({ count }) => console.log(count));
