@@ -15979,8 +15979,11 @@ var _Rx = require('rxjs/Rx');
 
 var startButton = document.getElementById('start');
 
-_Rx.Observable.fromEvent(startButton, 'click').switchMap(function () {
-	return _Rx.Observable.interval(1000);
+var buttonClick$ = _Rx.Observable.fromEvent(startButton, 'click');
+var interval$ = _Rx.Observable.interval(1000);
+
+buttonClick$.switchMap(function () {
+	return interval$;
 }).subscribe(function (count) {
 	return console.log(count);
 });

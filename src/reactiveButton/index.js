@@ -2,6 +2,9 @@ import { Observable } from 'rxjs/Rx';
 
 const startButton = document.getElementById('start');
 
-Observable.fromEvent(startButton, 'click')
-	.switchMap(() => Observable.interval(1000))
+const buttonClick$ = Observable.fromEvent(startButton, 'click');
+const interval$ = Observable.interval(1000);
+
+buttonClick$
+	.switchMap(() => interval$)
 	.subscribe((count) => console.log(count));
