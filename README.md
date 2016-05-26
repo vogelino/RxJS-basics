@@ -12,5 +12,8 @@ Contrary to the normal one by one behavior, reactive programming allows to defin
 #### `fromEvent`
 Creates an observable based on a javascript event like for instance 'click'.
 
+#### `interval`
+Creates an observable based on a javascript interval timer. Similar as `setInerval` but as method of an Observable.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.

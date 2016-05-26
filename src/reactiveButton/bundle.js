@@ -15983,4 +15983,8 @@ _Rx.Observable.fromEvent(startButton, 'click').subscribe(function (event) {
 	return console.log(event);
 });
 
+_Rx.Observable.interval(1000).subscribe(function (count) {
+	return console.log(count);
+});
+
 },{"rxjs/Rx":10}]},{},[338]);
