@@ -4,9 +4,9 @@
   "description": "Learning RxJS by doing",
   "main": "index.js",
   "scripts": {
-    "watch:reactiveTimer": "watchify ./src/reactiveTimer/index.js -t babelify -o ./src/reactiveTimer/bundle.js",
-    "watch:reactiveInput": "watchify ./src/reactiveInput/index.js -t babelify -o ./src/reactiveInput/bundle.js",
-    "watch:combinedTimerAndInput": "watchify ./src/combinedTimerAndInput/index.js -t babelify -o ./src/combinedTimerAndInput/bundle.js"
+    "watch:reactiveTimer": "watchify ./examples/reactiveTimer/index.js -t babelify -o ./examples/reactiveTimer/bundle.js",
+    "watch:reactiveInput": "watchify ./examples/reactiveInput/index.js -t babelify -o ./examples/reactiveInput/bundle.js",
+    "watch:combinedTimerAndInput": "watchify ./examples/combinedTimerAndInput/index.js -t babelify -o ./examples/combinedTimerAndInput/bundle.js"
   },
   "repository": {
     "type": "git",
