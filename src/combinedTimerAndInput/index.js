@@ -13,12 +13,12 @@ const combinedTimerAndInput$ = reactiveTimer$
 	)
 	.takeWhile(({ count }) => count <= 3)
 	.filter(({ text, count }) => count === parseInt(text))
-	.reduce((acc, curr) => acc + 1, 0);
+	.reduce((acc, curr) => acc + 1, 0)
+	.repeat();
 
 combinedTimerAndInput$
 	.subscribe(
 		(x) => console.log(x),
-		(err) => console.log(err),
-		() => console.log('complete')
+		(err) => console.log(err)
 	);
 
