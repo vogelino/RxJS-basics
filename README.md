@@ -9,6 +9,13 @@ When a transformation is applied to an observable, another observable is created
 The goal of defining observables is to anticipate how to react on events that may be emitted over time and to enable asynchronous execution.
 Contrary to the normal one by one behavior, reactive programming allows to define first how things should depending on what event react and then let this happen in any order.
 
+#### `subscribe`
+Subscribes to an observables to call three different function on different event types:
+
+1. On every event
+2. On error events
+3. On the final success event
+
 #### `fromEvent`
 Creates an observable based on a javascript event like for instance 'click'.
 
