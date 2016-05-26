@@ -6,9 +6,15 @@ const combinedTimerAndInput$ = Observable.combineLatest(
 	reactiveTimer$,
 	reactiveInput$,
 	({ count }, text) => ({ count, text }))
-	.takeWhile(({ count }) => count < 10)
-	.filter(({ text, count }) => count === parseInt(text));
+	.do((data) => console.log(data))
+	.takeWhile(({ count }) => count <= 3)
+	.filter(({ text, count }) => count === parseInt(text))
+	.reduce((acc, curr) => acc + 1, 0);
 
 combinedTimerAndInput$
-	.subscribe((x) => console.log(x));
+	.subscribe(
+		(x) => console.log(x),
+		(err) => console.log(err),
+		() => console.log('complete')
+	);
 

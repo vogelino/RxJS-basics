@@ -55,5 +55,11 @@ Similar to map, filters the results of the Observable events and reach them furt
 #### `takeWhile`
 Similar to filter in its parameters but stops the stream when the condition defined in it does not pass anymore.
 
+#### `reduce`
+Similar to a javascript reduce, this will accumulate through the iterations an will reach its results further. This prevents the first function passed to subscribe to be called at every iteration and calls it once completed only with the result of the reduce.
+
+#### `do`
+Allows to trigger a side effect at each iteration.
+
 ## [Observers](http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver)
 An observer is a function or an abstraction that subscribes to an observable and will be executed when the observable emits an event.
