@@ -14,10 +14,11 @@ const data = { count: 0 };
 const inc = (acc) => ({ count: acc.count + 1 });
 const reset = () => data;
 
-const startInterval$ = start$.switchMapTo(Observable.merge(
+const incOrReset$ = Observable.merge(
 	intervalThatStops$.mapTo(inc),
-	reset$.mapTo(reset)
-));
+	reset$.mapTo(reset));
+
+const startInterval$ = start$.switchMapTo(incOrReset$);
 
 const incrementingInterval$ = startInterval$
 	.startWith(data)

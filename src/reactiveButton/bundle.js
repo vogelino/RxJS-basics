@@ -15995,7 +15995,9 @@ var reset = function reset() {
 	return data;
 };
 
-var startInterval$ = start$.switchMapTo(_Rx.Observable.merge(intervalThatStops$.mapTo(inc), reset$.mapTo(reset)));
+var incOrReset$ = _Rx.Observable.merge(intervalThatStops$.mapTo(inc), reset$.mapTo(reset));
+
+var startInterval$ = start$.switchMapTo(incOrReset$);
 
 var incrementingInterval$ = startInterval$.startWith(data).scan(function (acc, curr) {
 	return curr(acc);
